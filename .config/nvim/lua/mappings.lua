@@ -79,11 +79,11 @@ map(
 )
 
 map("i", "<Tab>", function()
-  local has_supermaven, supermaven = pcall(require, "supermaven-nvim.completion_preview")
+  local has_copilot, copilot_suggestion = pcall(require, "copilot.suggestion")
   local has_luasnip, luasnip = pcall(require, "luasnip")
 
-  if has_supermaven and supermaven.has_suggestion() then
-    supermaven.on_accept_suggestion()
+  if has_copilot and copilot_suggestion.is_visible() then
+    copilot_suggestion.accept()
   elseif has_luasnip and luasnip.expand_or_jumpable() then
     luasnip.expand_or_jump()
   elseif vim.fn.pumvisible() == 1 then
@@ -91,4 +91,4 @@ map("i", "<Tab>", function()
   else
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
   end
-end, { desc = "Supermaven → LuaSnip → cmp → Tab" })
+end, { desc = "Copilot → LuaSnip → cmp → Tab" })

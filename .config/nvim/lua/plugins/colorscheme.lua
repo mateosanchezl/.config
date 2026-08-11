@@ -20,13 +20,10 @@
 --   lazy = false,
 --   priority = 1000,
 --   config = function()
---     require("tokyonight").setup {
---       transparent = true,
---     }
+--     require("tokyonight").setup {}
 --     vim.cmd "colorscheme tokyonight-night"
 --   end,
 -- }
-
 -- return {
 --   "catppuccin/nvim",
 --   lazy = false,
@@ -71,15 +68,56 @@
 --     vim.cmd("colorscheme gruvbox")
 --   end,
 -- }
+-- return {
+--   "ribru17/bamboo.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("bamboo").setup {
+--       -- optional configuration here
+--     }
+--     require("bamboo").load()
+--     vim.cmd "colorscheme bamboo"
+--   end,
+-- }
+--
+--
+-- return {
+--   "sainnhe/gruvbox-material",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.g.gruvbox_material_enable_italic = true
+--     vim.cmd.colorscheme "gruvbox-material"
+--   end,
+-- }
+--
+-- return {
+--   "zenbones-theme/zenbones.nvim",
+--   dependencies = "rktjmp/lush.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.opt.background = "l"
+--     vim.cmd.colorscheme "zenbones"
+--   end,
+-- }
+--
+-- return {
+--   "miikanissi/modus-themes.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd.colorscheme "modus"
+--   end,
+-- }
 return {
-  "ribru17/bamboo.nvim",
+  "tiagovla/tokyodark.nvim",
   lazy = false,
   priority = 1000,
-  config = function()
-    require("bamboo").setup {
-      -- optional configuration here
-    }
-    require("bamboo").load()
-    vim.cmd "colorscheme bamboo"
+  opts = {},
+  config = function(_, opts)
+    require("tokyodark").setup(opts)
+    vim.cmd [[colorscheme tokyodark]]
   end,
 }

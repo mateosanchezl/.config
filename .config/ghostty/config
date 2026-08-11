@@ -1,5 +1,5 @@
 # --- Font ---
-theme = Monokai Classic 
+theme = TokyoNight Night
 font-size = 20
 # font-feature = -liga, -calt
 
@@ -17,4 +17,4 @@ maximize = true
 
 shell-integration-features = no-cursor
 
-font-family = CaskaydiaCove NF
+font-family = Hack Nerd Font Mono 

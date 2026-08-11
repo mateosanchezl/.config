@@ -10,7 +10,7 @@ return {
   cmd = "Telescope",
   opts = {
     defaults = {
-      preview = false,
+      preview = true,
       color_devicons = false,
       prompt_prefix = " ",
       selection_caret = " ",
@@ -20,9 +20,11 @@ return {
       layout_config = {
         horizontal = {
           prompt_position = "top",
+          preview_width = 0.60,
+          results_width = 0.40,
         },
-        width = 0.50,
-        height = 0.50,
+        width = 0.95,
+        height = 0.95,
       },
       mappings = {
         n = { ["q"] = require("telescope.actions").close },

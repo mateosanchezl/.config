@@ -13,7 +13,7 @@ return {
     local cmp = require "cmp"
     local luasnip = require "luasnip"
 
-    local has_supermaven, supermaven = pcall(require, "supermaven-nvim.completion_preview")
+    local has_copilot, copilot_suggestion = pcall(require, "copilot.suggestion")
 
     cmp.setup {
       completion = { completeopt = "menu,menuone,noinsert,noselect" },
@@ -42,10 +42,10 @@ return {
         -- Confirm - only if explicitly selected
         ["<CR>"] = cmp.mapping.confirm { select = false },
 
-        -- Tab behavior with Supermaven + LuaSnip integration
+        -- Tab behavior with Copilot + LuaSnip integration
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if has_supermaven and supermaven.has_suggestion() then
-            supermaven.on_accept_suggestion()
+          if has_copilot and copilot_suggestion.is_visible() then
+            copilot_suggestion.accept()
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           else
