@@ -96,8 +96,9 @@ return {
       "marksman",
       "vtsls",
       "vue_ls",
-      "pyright",
+      "basedpyright",
       "rust_analyzer",
+      "svelte-language-server",
     }
   end,
 }

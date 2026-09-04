@@ -56,7 +56,7 @@
 --   lazy = false,
 --   priority = 1000,
 --   config = function()
---     require("gruvbox").setup({
+--     require("gruvbox").setup {
 --       italic = {
 --         strings = false,
 --         emphasis = false,
@@ -64,20 +64,8 @@
 --         operators = false,
 --         folds = false,
 --       },
---     })
---     vim.cmd("colorscheme gruvbox")
---   end,
--- }
--- return {
---   "ribru17/bamboo.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     require("bamboo").setup {
---       -- optional configuration here
 --     }
---     require("bamboo").load()
---     vim.cmd "colorscheme bamboo"
+--     vim.cmd "colorscheme gruvbox"
 --   end,
 -- }
 --
@@ -111,13 +99,23 @@
 --     vim.cmd.colorscheme "modus"
 --   end,
 -- }
+-- return {
+--   "tiagovla/tokyodark.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   config = function(_, opts)
+--     require("tokyodark").setup(opts)
+--     vim.cmd [[colorscheme tokyodark]]
+--   end,
+-- }
+
 return {
-  "tiagovla/tokyodark.nvim",
+  "bluz71/vim-moonfly-colors",
   lazy = false,
   priority = 1000,
-  opts = {},
-  config = function(_, opts)
-    require("tokyodark").setup(opts)
-    vim.cmd [[colorscheme tokyodark]]
+  name = "moonfly",
+  config = function()
+    vim.cmd.colorscheme "moonfly"
   end,
 }

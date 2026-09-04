@@ -1,5 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
+  version = "*",
+
   dependencies = {
     { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
     {
@@ -7,7 +9,9 @@ return {
       build = "make",
     },
   },
+
   cmd = "Telescope",
+
   opts = {
     defaults = {
       preview = true,
@@ -26,10 +30,8 @@ return {
         width = 0.95,
         height = 0.95,
       },
-      mappings = {
-        n = { ["q"] = require("telescope.actions").close },
-      },
     },
+
     extensions = {
       fzf = {
         fuzzy = true,
@@ -39,9 +41,18 @@ return {
       },
     },
   },
+
   config = function(_, opts)
-    local telescope = require "telescope"
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
+
+    opts.defaults.mappings = {
+      n = {
+        ["q"] = actions.close,
+      },
+    }
+
     telescope.setup(opts)
-    telescope.load_extension "fzf"
+    telescope.load_extension("fzf")
   end,
 }

@@ -40,3 +40,5 @@ o.undofile = true
 o.updatetime = 250
 
 o.swapfile = false
+
+o.wrap = false
